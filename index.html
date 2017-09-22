@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="sorUP">
+  <meta name="apple-mobile-web-app-title" content="sorUP">
+  <meta name="theme-color" content="#b3ffff">
+  <meta name="msapplication-navbutton-color" content="#ffff00">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-starturl" content="https://flow-randd.github.io/sorUpdate/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <base target="_top">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <style> 
+      h5 {
+        color: grey;
+        margin-top: 0px
+      }
+      html, body {
+        height: 90%;
+        background: #FFFFFF;
+        padding: 0px;
+        height: 100%;
+        width: 99%;
+        margin: auto
+        background: #FFFFFF; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(rgba(179,255,255,1), white);
+        background: -moz-linear-gradient(rgba(179,255,255,1), white);
+        background: -o-linear-gradient(rgba(179,255,255,1), white);
+        background: linear-gradient(rgba(179,255,255,1), white 70%);
+      }
+      #div1 {  
+        border-radius: 25px;
+        padding: 10px;
+        height: auto;
+        width: auto;
+        margin: auto
+      }
+      pre {
+        border-radius: 5px;
+        border: 1px groove;
+        padding: 40px;
+        background: white;
+        height: auto;
+        width: auto;
+        margin: auto
+      }
+      img {
+        display: block;
+        margin: auto;
+        width: 80%
+      }
+    </style>
+    <img src="https://flow-randd.github.io/sorUpdate/images/Flowstore_Logo_CUT OUT_v1.png" alt="FLOWSTORE SYSTEMS LTD.">
+  </head>
+
+  <body>
+  <bodyInner>  
+  <header><marquee><h3>Calendar Update</h3></marquee></header>
+    <div id="div1">
+    <h5>Please type the SOR you want an update on</h5>
+    
+    <form>
+    SOR:<br>
+    <input type="text" id="SOR" name="SOR" style="width:50%"><br><br>
+    </form>
+    
+    <div id="div2">
+      Sales Person: <input type="checkbox" id="0" name="Sales"><br>
+      Production: <input type="checkbox" id="1" name="Production"><br>
+      Charlie: <input type="checkbox" id="2" name="Charlie"><br>
+      Sales PC: <input type="checkbox" id="3" name="SalesPC"><br>
+      Customer: <input type="checkbox" id="4" name="Customer"><br>
+    </div>  
+    
+      <div id="image2"></div><p>
+      
+    <div id="clickers">  
+    <button class="action" onclick="myFunction()">Get Update</button>    
+    <button class="Close" onclick="uncheckAll()">Clear</button><p><br><p>
+      
+    <!--Add buttons to initiate auth sequence and sign out-->
+    <button id="authorize-button" style="display: none;">Authorise</button><p>
+    <button id="signout-button" style="display: none;">Sign Out</button>
+    </div>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+    <script>
+        function myFunction(){ 
+          var idArry = [];
+          var labArry = [];
+          for(var i = 0; i<=4; i++){
+            var id = document.getElementById(i).checked;
+            
+            idArry[i] = id;
+            if(id == true){
+              var label = document.getElementById(i).name;
+              labArry.push(label);
+            }
+          }
+          alert("labArry");
+          //GAS Fulfillment here
+          //callScriptFunction();
+        }
+        
+        function uncheckAll(){
+        $('input[type="checkbox"]:checked').prop('checked',false);
+        $('input[type="text"], textarea').val('');
+        $('#image2').empty();
+        //document.getElementById('content').style.display = 'block';
+        }
+    </script>
