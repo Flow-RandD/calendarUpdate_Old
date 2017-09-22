@@ -1,4 +1,4 @@
-# jobCompletion
-Web app that plots complete jobs on warehouse map and emails relevant parties
+# calendarUpdate
+Web app that updates Google Calendar and auto Emails information regarding SORs
 
-Runs in web browser and is used to update Steve with complete jobs and where they are located in the warehouse
+Runs in web browser and can be installed on home screen
