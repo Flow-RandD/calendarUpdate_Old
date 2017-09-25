@@ -224,12 +224,12 @@
         gapi.client.script.scripts.run({
           'scriptId': scriptId,
           'resource': {
-            'function': 'openDialog',
+            'function': 'calendarUpdate',
               'parameters': 
               [
-                emailSubject
-                //SOR,
-                //labArry
+                //emailSubject
+                SOR,
+                labArry
               ]
           }
         }).then(function(resp) {
@@ -265,7 +265,17 @@
             $('pre').html('');
             var r = confirm(sorSet);
             if (r == true){
-              alert("We will now send emails");
+              gapi.client.script.scripts.run({
+                'scriptId': scriptId,
+                'resource': {
+                'function': 'emailer',
+                'parameters': 
+                [
+                //emailSubject
+                labArry
+                ]
+                }
+              })
             }else {
               alert("No emails for you!");
             }
