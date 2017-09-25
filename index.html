@@ -114,7 +114,7 @@
 <!--GOOGLE QUICKSTART CODE-->         
     <script type="text/javascript">
       // Client ID and API key from the Developer Console
-      var CLIENT_ID = '354928838315-dim8ldmta77ceuoh3mracsg2m86p28p8.apps.googleusercontent.com';
+      var CLIENT_ID = '1067528895621-3motao3fr356m7j4961rc229v1sdpqlf.apps.googleusercontent.com';
       // Array of API discovery doc URLs for APIs used by the quickstart
       var DISCOVERY_DOCS = ["https://script.googleapis.com/$discovery/rest?version=v1"];
       // Authorization scopes required by the API; multiple scopes can be
@@ -202,8 +202,8 @@
       /**
        * Load the API and make an API call.  Display the results on the screen.
        */
-      function callScriptFunction() {
-        var scriptId = "1zjO2CihIJpF4G6yxlX1a_U3Yd2V2L-dqC8dU1ce8tbrLCdnlJN06bTWv";
+      function callScriptFunction(labArry) {
+        var scriptId = "1E6F27vZSW9_1l4x1_PgCaCGvGUPlUmSbsjQjrzwOiuITXezVlDjOtdq7";
         
         //Get SOR from HTML
         var SOR = document.getElementById("SOR").value;
@@ -224,7 +224,8 @@
             'function': 'sorUpdate',
               'parameters': 
               [
-                SOR
+                SOR,
+                labArry
               ]
           }
         }).then(function(resp) {
