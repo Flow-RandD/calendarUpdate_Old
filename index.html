@@ -98,7 +98,7 @@
           }
           alert(labArry);
           //GAS Fulfillment here
-          callScriptFunction();
+          callScriptFunction(labArry);
         }
         
         function uncheckAll(){
@@ -207,6 +207,8 @@
         
         //Get SOR from HTML
         var SOR = document.getElementById("SOR").value;
+        
+        alert(labArry);
         //Clear checkboxes & set pre ready for response
         //document.getElementById('content').style.display = 'none';
         $('pre').html('Loading...');
