@@ -275,7 +275,10 @@
                 labArry
                 ]
                 }
-              })
+              }).then(function(resp) {
+                var result = resp.result;
+                var emailSet = result.response.result;
+                alert(emailSet);
             }else {
               alert("No emails for you!");
             }
