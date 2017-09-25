@@ -208,6 +208,7 @@
         //Get SOR from HTML
         var SOR = document.getElementById("SOR").value;
         
+        var emailSubject = "TEST";
         alert(labArry);
         //Clear checkboxes & set pre ready for response
         //document.getElementById('content').style.display = 'none';
@@ -223,11 +224,12 @@
         gapi.client.script.scripts.run({
           'scriptId': scriptId,
           'resource': {
-            'function': 'calendarUpdate',
+            'function': 'openDialog',
               'parameters': 
               [
-                SOR,
-                labArry
+                emailSubject
+                //SOR,
+                //labArry
               ]
           }
         }).then(function(resp) {
