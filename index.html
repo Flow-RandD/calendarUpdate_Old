@@ -261,7 +261,13 @@
             clearTimeout(myTimeout);
             var sorSet = result.response.result;
             $('pre').html('');
-            appendPre(sorSet);
+            var r = confirm(sorSet);
+            if (r == true){
+              alert("We will now send emails");
+            }else {
+              alert("No emails for you!");
+            }
+              //appendPre(sorSet);
           }
         });
       }
