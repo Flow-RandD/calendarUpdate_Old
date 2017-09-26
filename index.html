@@ -199,6 +199,7 @@
 
     // When the user clicks on the button, Update 
     btn.onclick = function() {
+      $('#myModal').show()
       sorUpdate();
     }
 
@@ -250,7 +251,7 @@
         function uncheckAll(){
         $('input[type="checkbox"]:checked').prop('checked',false);
         $('input[type="text"], textarea').val('');
-        $('#contentMain').empty();
+        $('#contentMain').html('');
         $('#image2').empty();
         $('#div2').hide();
         document.getElementById("myBtn").onclick = sorUpdate;
