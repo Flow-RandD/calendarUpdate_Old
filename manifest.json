@@ -3,19 +3,19 @@
   "short_name": "calUP",
   "lang": "en-GB",
   "icons": [{
-    "src": "images/Flowstore_Logo_CUT OUT_v1.png",
+    "src": "images/calendar.png",
     "type": "image/png",
     "sizes": "128x128"
   }, {
-    "src": "images/Flowstore_Logo_CUT OUT_v1.png",
+    "src": "images/calendar.png",
     "type": "image/png",
     "sizes": "152x152"
   }, {
-    "src": "images/Flowstore_Logo_CUT OUT_v1.png",
+    "src": "images/calendar.png",
     "type": "image/png",
     "sizes": "144x144"
   }, {
-    "src": "images/Flowstore_Logo_CUT OUT_v1.png",
+    "src": "images/calendar.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
