@@ -144,7 +144,7 @@
           <pre id="content">Some text in the Modal Body</pre>
         </div>
         <div class="modal-footer">
-          <button class="action" onclick="myFunction()">Confirm</button>
+          <button class="action" onclick="emailAdds()">Confirm</button>
         </div>
       </div>
       
@@ -158,7 +158,6 @@
       Customer: <input type="checkbox" id="4" name="Customer"><br>
     </div>  
     
-      <!-- <pre id="content"></pre> -->
       <div id="image2"></div><p>
       
     <div id="clickers">  
@@ -204,6 +203,14 @@
    </script>
       
     <script>
+        function emailAdds(){
+          //$('.modal-header').text('Select email recipients');
+          $('.modal-body').text('Now, please select email recipients...');
+          $('.modal-footer').empty();
+          $('pre').empty();
+          $('#div2').show();
+          document.getElementById("myBtn").onclick = myFunction;
+        }
         function myFunction(){ 
           var idArry = [];
           var labArry = [];
@@ -230,7 +237,7 @@
         $('input[type="text"], textarea').val('');
         $('pre').empty();
         $('#image2').empty();
-        $('#div2').show();
+        $('#div2').hide();
         //document.getElementById('content').style.display = 'block';
         }
     </script>
