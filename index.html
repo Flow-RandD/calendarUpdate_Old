@@ -141,7 +141,7 @@
           <h2>Update this SOR?</h2>
         </div>
         <div class="modal-body">
-          <pre id="content">Some text in the Modal Body</pre>
+          <pre id="contentModal">Some text in the Modal Body</pre>
         </div>
         <div class="modal-footer">
           <button class="action" onclick="emailAdds()">Confirm</button>
@@ -156,7 +156,9 @@
       Charlie: <input type="checkbox" id="2" name="Charlie"><br>
       Sales PC: <input type="checkbox" id="3" name="SalesPC"><br>
       Customer: <input type="checkbox" id="4" name="Customer"><br>
-    </div>  
+    </div>
+      
+      <pre id="contentMain"></pre>
     
       <div id="image2"></div><p>
       
@@ -207,7 +209,7 @@
           //$('.modal-header').text('Select email recipients');
           $('.modal-body').text('Now, please select email recipients...');
           $('.modal-footer').empty();
-          $('pre').empty();
+          $('#contentModal').empty();
           $('#div2').show();
           document.getElementById("myBtn").onclick = myFunction;
         }
@@ -235,7 +237,7 @@
         function uncheckAll(){
         $('input[type="checkbox"]:checked').prop('checked',false);
         $('input[type="text"], textarea').val('');
-        $('pre').empty();
+        $('#contentMain').empty();
         $('#image2').empty();
         $('#div2').hide();
         //document.getElementById('content').style.display = 'block';
@@ -310,7 +312,7 @@
        * @param {string} message Text to be placed in pre element.
        */
       function appendPre(message) {
-        var pre = document.getElementById('content');
+        var pre = document.getElementById('contentModal');
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
       }
@@ -318,11 +320,11 @@
       *Timout function positioned here for variable definition before callScriptFunction
       */
       function timeOut(){
-        var preState = document.getElementById('content').innerHTML
+        var preState = document.getElementById('contentMain').innerHTML
         myTimeout = setTimeout(function(){
             if (preState==='Loading...'){
               alert("It seems you may not have permission to view this information, or you haven't authorised this app.");
-              $('pre').html('Get outta here, ya filthy animal!');
+              $('#contentMain').html('Get outta here, ya filthy animal!');
               $('#image2').html('<img src="https://media.giphy.com/media/10K7FlHoiA8Cpq/giphy.gif" alt="Loading" />');
             }else{
             }
@@ -343,7 +345,7 @@
         alert(labArry);
         //Clear checkboxes & set pre ready for response
         //document.getElementById('content').style.display = 'none';
-        $('pre').html('Loading...');
+        $('#contentMain').html('Loading...');
         $('#div2').hide();
         //Call timeOut function
         timeOut();
@@ -393,7 +395,7 @@
             // is treated as a JavaScript object (folderSet).
             clearTimeout(myTimeout);
             var sorSet = result.response.result;
-            $('pre').html('');
+            $('#contentMain').html('');
             var r = confirm(sorSet);
             if (r == true){
               gapi.client.script.scripts.run({
@@ -427,7 +429,7 @@
         var SOR = document.getElementById("SOR").value;
         //Clear checkboxes & set pre ready for response
         //document.getElementById('content').style.display = 'none';
-        $('pre').html('Loading...');
+        $('#contentMain').html('Loading...');
         //Call timeOut function
         timeOut();
         
@@ -474,7 +476,7 @@
             // is treated as a JavaScript object (folderSet).
             clearTimeout(myTimeout);
             var sorSet = result.response.result;
-            $('pre').html('');
+            $('#contentMain').html('');
             appendPre(sorSet);
           }
         //$('.modal-body').html(sorSet);
