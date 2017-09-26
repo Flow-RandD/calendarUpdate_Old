@@ -141,8 +141,7 @@
           <h2>Update this SOR?</h2>
         </div>
         <div class="modal-body">
-          <p>Some text in the Modal Body</p>
-          <p>Some other text...</p>
+          <pre id="content">Some text in the Modal Body</pre>
         </div>
         <div class="modal-footer">
           <button class="action" onclick="myFunction()">Confirm</button>
@@ -159,14 +158,13 @@
       Customer: <input type="checkbox" id="4" name="Customer"><br>
     </div>  
     
-      <pre id="content"></pre>
+      <!-- <pre id="content"></pre> -->
       <div id="image2"></div><p>
       
     <div id="clickers">  
     <!-- Trigger/Open The Modal -->
     <button class="action" id="myBtn" onclick="sorUpdate()">Update</button>
-      
-    <!-- <button class="action" onclick="myFunction()">Get Update</button> -->
+    <!-- Clear -->
     <button class="Close" onclick="uncheckAll()">Clear</button><p><br><p>
       
     <!--Add buttons to initiate auth sequence and sign out-->
@@ -470,9 +468,9 @@
             clearTimeout(myTimeout);
             var sorSet = result.response.result;
             $('pre').html('');
-            //appendPre(sorSet);
+            appendPre(sorSet);
           }
-        $('.modal-body').html(sorSet);
+        //$('.modal-body').html(sorSet);
         $('#myModal').show()
         });
       }
