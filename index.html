@@ -156,6 +156,17 @@
       Charlie: <input type="checkbox" id="2" name="Charlie"><br>
       Sales PC: <input type="checkbox" id="3" name="SalesPC"><br>
       Customer: <input type="checkbox" id="4" name="Customer"><br>
+      
+      <select id="status">
+        <option value="intoProduction">into Production</option>
+        <option value="dateChanged">Target Date Changed</option>
+        <option value="buildComplete">Build complete</option>
+        <option value="qualityComplete">Quality Control complete</option>
+        <option value="customerDeliveryConfirmation">out for Customer Delivery Confirmation</option>
+        <option value="deliveryDateConfirmed">Delivery Date confirmed</option>
+        <option value="transportBooked">Transport booked</option>
+        <option value="dispatched">Dispatched</option>
+      </select>
     </div>
       
       <pre id="contentMain"></pre>
@@ -225,7 +236,8 @@
               labArry.push(label);
             }
           }
-          alert(labArry);
+          var status = document.getElementById("status");
+          alert('These people (' + labArry + ') will be updated with the following status: ' + status);
           //GAS Fulfillment here
           callScriptFunction(labArry);
         }
