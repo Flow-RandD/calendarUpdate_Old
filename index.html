@@ -470,9 +470,9 @@
             clearTimeout(myTimeout);
             var sorSet = result.response.result;
             $('pre').html('');
-            appendPre(sorSet);
+            //appendPre(sorSet);
           }
-        $('.modal-body').html('new text' + sorSet);
+        $('.modal-body').html(sorSet);
         $('#myModal').show()
         });
       }
