@@ -236,7 +236,8 @@
               labArry.push(label);
             }
           }
-          var status = document.getElementById("status").val;
+          var statusSelect = document.getElementById("status");
+          var status = statusSelect.options[statusSelect.selectedIndex].value;
           alert('These people (' + labArry + ') will be updated with the following status: ' + status);
           //GAS Fulfillment here
           callScriptFunction(labArry);
