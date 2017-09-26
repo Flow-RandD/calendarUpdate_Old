@@ -5,12 +5,12 @@
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="sorUP">
+  <meta name="application-name" content="calUP">
   <meta name="apple-mobile-web-app-title" content="sorUP">
   <meta name="theme-color" content="#b3ffff">
   <meta name="msapplication-navbutton-color" content="#ffff00">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="msapplication-starturl" content="https://flow-randd.github.io/sorUpdate/">
+  <meta name="msapplication-starturl" content="https://flow-randd.github.io/calendarUpdate/">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <base target="_top">
@@ -117,7 +117,7 @@
         width: 80%
       }
     </style>
-    <img src="https://flow-randd.github.io/sorUpdate/images/Flowstore_Logo_CUT OUT_v1.png" alt="FLOWSTORE SYSTEMS LTD.">
+    <img src="https://flow-randd.github.io/calendarUpdate/images/Flowstore_Logo_CUT OUT_v1.png" alt="FLOWSTORE SYSTEMS LTD.">
   </head>
 
   <body>
@@ -138,14 +138,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <span class="close">&times;</span>
-          <h2>SOR Details</h2>
+          <h2>Update this SOR?</h2>
         </div>
         <div class="modal-body">
           <p>Some text in the Modal Body</p>
           <p>Some other text...</p>
         </div>
         <div class="modal-footer">
-          <button class="action" onclick="myFunction()">Get Update</button>
+          <button class="action" onclick="myFunction()">Confirm</button>
         </div>
       </div>
       
@@ -164,7 +164,7 @@
       
     <div id="clickers">  
     <!-- Trigger/Open The Modal -->
-    <button class="action" id="myBtn" onclick="myFunc2()">Update</button>
+    <button class="action" id="myBtn" onclick="sorUpdate()">Update</button>
       
     <!-- <button class="action" onclick="myFunction()">Get Update</button> -->
     <button class="Close" onclick="uncheckAll()">Clear</button><p><br><p>
@@ -179,37 +179,31 @@
     
    <script>
      // Get the modal
-var modal = document.getElementById('myModal');
+     var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, Update 
-btn.onclick = function() {
-    modal.style.display = "block";
-      $('#myModal').on('shown.bs.modal', function () {
-      alert('after load');
-      });
-  
-  var load = "LOADED"
-          alert(load);
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    // When the user clicks on the button, Update 
+    btn.onclick = function() {
+      sorUpdate();
     }
-}
-      </script>
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+   </script>
       
     <script>
         function myFunction(){ 
@@ -229,9 +223,8 @@ window.onclick = function(event) {
           callScriptFunction(labArry);
         }
         
-        function myFunc2(){
-          var load = "LOADED"
-          alert(load);
+        function sorUpdate(){
+          sorUpdateFunction();
         }
       
         function uncheckAll(){
@@ -419,6 +412,69 @@ window.onclick = function(event) {
               //appendPre(sorSet);
           }
         });
+      }
+      
+      //Called for SOR Update into Modal
+      function sorUpdateFunction() {
+        var scriptId = "1zjO2CihIJpF4G6yxlX1a_U3Yd2V2L-dqC8dU1ce8tbrLCdnlJN06bTWv";
+        
+        //Get SOR from HTML
+        var SOR = document.getElementById("SOR").value;
+        //Clear checkboxes & set pre ready for response
+        //document.getElementById('content').style.display = 'none';
+        $('pre').html('Loading...');
+        //Call timeOut function
+        timeOut();
+        
+        // Call the Execution API run method
+        //   'scriptId' is the URL parameter that states what script to run
+        //   'resource' describes the run request body (with the function name
+        //              to execute)
+        gapi.client.script.scripts.run({
+          'scriptId': scriptId,
+          'resource': {
+            'function': 'sorUpdate',
+              'parameters': 
+              [
+                SOR
+              ]
+          }
+        }).then(function(resp) {
+          var result = resp.result;
+          if (result.error && result.error.status) {
+            // The API encountered a problem before the script
+            // started executing.
+            appendPre('Error calling API:');
+            appendPre(JSON.stringify(result, null, 2));
+          } else if (result.error) {
+            // The API executed, but the script returned an error.
+            // Extract the first (and only) set of error details.
+            // The values of this object are the script's 'errorMessage' and
+            // 'errorType', and an array of stack trace elements.
+            var error = result.error.details[0];
+            appendPre('Script error message: ' + error.errorMessage);
+            if (error.scriptStackTraceElements) {
+              // There may not be a stacktrace if the script didn't start
+              // executing.
+              appendPre('Script error stacktrace:');
+              for (var i = 0; i < error.scriptStackTraceElements.length; i++) {
+                var trace = error.scriptStackTraceElements[i];
+                appendPre('\t' + trace.function + ':' + trace.lineNumber);
+              }
+            }
+          } else {
+            // The structure of the result will depend upon what the Apps
+            // Script function returns. Here, the function returns an Apps
+            // Script Object with String keys and values, and so the result
+            // is treated as a JavaScript object (folderSet).
+            clearTimeout(myTimeout);
+            var sorSet = result.response.result;
+            $('pre').html('');
+            appendPre(sorSet);
+          }
+        });
+        $('.modal-body').html('new text' + sorSet);
+        $('#myModal').show()
       }
     </script>
 
