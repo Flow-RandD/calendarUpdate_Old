@@ -240,7 +240,7 @@
           var status = statusSelect.options[statusSelect.selectedIndex].value;
           alert('These people (' + labArry + ') will be updated with the following status: ' + status);
           //GAS Fulfillment here
-          callScriptFunction(labArry);
+          calendarUpdateFunction(labArry, status);
         }
         
         function sorUpdate(){
@@ -342,20 +342,20 @@
               $('#image2').html('<img src="https://media.giphy.com/media/10K7FlHoiA8Cpq/giphy.gif" alt="Loading" />');
             }else{
             }
-          },4500);
+          },5000);
       }
       
       
       /**
-       * Load the API and make an API call.  Display the results on the screen.
+       * Load the API and make an API call.  Display the results on the screen. Used to be callScriptFunction()
        */
-      function callScriptFunction(labArry) {
+      function calendarUpdateFunction(labArry, status) {
         var scriptId = "1E6F27vZSW9_1l4x1_PgCaCGvGUPlUmSbsjQjrzwOiuITXezVlDjOtdq7";
         
         //Get SOR from HTML
         var SOR = document.getElementById("SOR").value;
         
-        alert(labArry);
+        alert(labArry + " & " + status);
         //Clear checkboxes & set pre ready for response
         //document.getElementById('content').style.display = 'none';
         $('#contentMain').html('Loading...');
@@ -374,7 +374,8 @@
               'parameters': 
               [
                 SOR,
-                labArry
+                labArry,
+                status
               ]
           }
         }).then(function(resp) {
