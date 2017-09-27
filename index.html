@@ -237,7 +237,8 @@
             }
           }
           var statusSelect = document.getElementById("status");
-          var status = statusSelect.options[statusSelect.selectedIndex].value;
+          //var status = statusSelect.options[statusSelect.selectedIndex].value;
+          var status = statusSelect.options[statusSelect.selectedIndex].text;
           alert('These people (' + labArry + ') will be updated with the following status: ' + status);
           //GAS Fulfillment here
           calendarUpdateFunction(labArry, status);
