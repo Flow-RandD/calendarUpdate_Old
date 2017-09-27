@@ -408,9 +408,9 @@
             // Script Object with String keys and values, and so the result
             // is treated as a JavaScript object (folderSet).
             clearTimeout(myTimeout);
-            var sorSet = result.response.result;
+            var calendarResponse = result; //result.response.result;
             $('#contentMain').html('');
-            var r = confirm(sorSet);
+            var r = confirm(calendarResponse);
             if (r == true){
               gapi.client.script.scripts.run({
                 'scriptId': scriptId,
