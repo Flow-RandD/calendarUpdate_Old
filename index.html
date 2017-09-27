@@ -341,7 +341,7 @@
               $('#image2').html('<img src="https://media.giphy.com/media/10K7FlHoiA8Cpq/giphy.gif" alt="Loading" />');
             }else{
             }
-          },5500);
+          },6000);
       }
       
       
@@ -406,9 +406,9 @@
             // Script Object with String keys and values, and so the result
             // is treated as a JavaScript object (folderSet).
             clearTimeout(myTimeout);
-            var calendarResponse = result.response.result;
+            //var calendarResponse = result.response.result;
+            var calendarResponse = "The Calendar Event has been updated, would you like to continue and send email notifications"
             $('#contentMain').html('');
-            alert("This is the response " + result);
             var r = confirm(calendarResponse);
             if (r == true){
               gapi.client.script.scripts.run({
