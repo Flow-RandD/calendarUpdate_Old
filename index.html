@@ -60,7 +60,7 @@
       /* Modal Content */
       .modal-content {
         position: relative;
-        background-color: #fefefe;
+        background-color: rgba(255,255,255,0.8);
         margin: auto;
         padding: 0;
         border: 1px solid #888;
@@ -100,15 +100,15 @@
 
       .modal-header {
         padding: 2px 16px;
-        background-color: #5cb85c;
+        background-color: rgba(179,255,255,0.5);
         color: white;
       }
 
-      .modal-body {padding: 2px 16px;}
+      .modal-body {padding: 20px 16px;}
 
       .modal-footer {
-        padding: 2px 16px;
-        background-color: #5cb85c;
+        padding: 5px 16px;
+        background-color: rgba(179,255,255,0.5);
         color: white;
       }
       img {
@@ -354,9 +354,7 @@
         //Get SOR from HTML
         var SOR = document.getElementById("SOR").value;
         
-        alert(labArry + " & " + status);
         //Clear checkboxes & set pre ready for response
-        //document.getElementById('content').style.display = 'none';
         $('#contentMain').html('Loading...');
         $('#div2').hide();
         //Call timeOut function
