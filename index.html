@@ -237,9 +237,7 @@
             }
           }
           var statusSelect = document.getElementById("status");
-          //var status = statusSelect.options[statusSelect.selectedIndex].value;
           var status = statusSelect.options[statusSelect.selectedIndex].text;
-          alert('These people (' + labArry + ') will be updated with the following status: ' + status);
           //GAS Fulfillment here
           calendarUpdateFunction(labArry, status);
         }
@@ -343,7 +341,7 @@
               $('#image2').html('<img src="https://media.giphy.com/media/10K7FlHoiA8Cpq/giphy.gif" alt="Loading" />');
             }else{
             }
-          },5000);
+          },5500);
       }
       
       
@@ -410,6 +408,7 @@
             clearTimeout(myTimeout);
             var calendarResponse = result.response.result;
             $('#contentMain').html('');
+            alert("This is the response " + result);
             var r = confirm(calendarResponse);
             if (r == true){
               gapi.client.script.scripts.run({
