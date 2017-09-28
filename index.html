@@ -342,7 +342,7 @@
               $('#image2').html('<img src="https://media.giphy.com/media/10K7FlHoiA8Cpq/giphy.gif" alt="Loading" />');
             }else{
             }
-          },6000);
+          },6500);
       }
       
       
@@ -355,6 +355,7 @@
         //Get SOR from HTML
         var SOR = document.getElementById("SOR").value;
         
+        alert("SOR: " + SOR + " @" + status + " will be sent to; " + labArry);
         //Clear checkboxes & set pre ready for response
         $('#contentMain').html('Loading...');
         $('#div2').hide();
